@@ -13,7 +13,7 @@ public class Main {
 		//String readFirst = args[0];
 		//String readSecond = args[1];
 		
-		String readFirst = "starwars.txt";
+		String readFirst = "starwars_tiny.txt";
 		String readSecond = "starwars.txt";
 		
 		
@@ -43,9 +43,12 @@ public class Main {
 		}
 		
 		
-		MinHeap mh = new MinHeap();
-		mh.insert(firstArray);
-		mh.search(secondArray);
+//		MinHeap minH = new MinHeap();
+//		minH.insert(firstArray);
+//		minH.search(secondArray);
+//		
+		MaxHeap maxH = new MaxHeap();
+		maxH.insert(firstArray);
 		
 		
 	}//end if for args=2 if it fails end the program so there should be nothing between this and main.

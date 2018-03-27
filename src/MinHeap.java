@@ -48,9 +48,13 @@ public class MinHeap {
 		
 	}
 	public void search(String[]input) {
-		
+		long searchTime = 0;
+		long searchTotal = 0;
 		for(int i = 0; i<input.length; i++) {
+			searchTime = System.nanoTime();
 			float node = traverse(input[i], 0);
+			searchTime = System.nanoTime()-searchTime;
+			searchTotal+=searchTime;
 			System.out.println("Searching for "+input[i]);
 			if(node<9999999) {
 			System.out.println("Found on Node:"+(int)node);
@@ -58,27 +62,30 @@ public class MinHeap {
 			int depth = 0;
 			int exponential = 0;
 			int depthtracker = 0;
+			
 			do {depth++;
 			exponential++;
 			depthtracker = (int) Math.pow(2, exponential);
 			}while(depthtracker<node);
 			System.out.println("The depth was "+depth--);
-			
-			
 			if(node % 1 == 0) {
-				System.out.println("The node was not a leaf\n\n\n");
+				System.out.println("The node was not a leaf");
 			}else {
-				System.out.println("The node was a leaf\n\n\n");
+				System.out.println("The node was a leaf");
 				
-				//get subtree size
 				
 			}
+			int size = getsize((int)node);	
+			System.out.println("The size of the tree with that as it's root is "+size+"\n\n\n");
 			}else {
 				System.out.println("That was not found\n\n\n");
 			}
 			int depth = 0;
 			
 		}
+		
+		searchTotal = searchTotal/input.length;
+		System.out.println("The average time to search was "+searchTotal+" nanoseconds");
 	}
 	
 	private float traverse(String input, int i) {
@@ -117,5 +124,25 @@ public class MinHeap {
 		
 		
 		return depth;
+	}
+	private int getsize(int i) {
+		if(arr[i]==null) {
+			return 0;
+		}
+		int size = 1;
+		int sizeLeft = 0;
+		int sizeRight = 0;
+		if(((i*2)+1)<=arr.length-1) {
+			 sizeLeft =getsize(((i*2)+1));
+		}
+		
+		if(((i*2)+2)<=arr.length-1) {
+			sizeRight =getsize(((i*2)+2)); 
+		}
+		size=size+sizeLeft+sizeRight;
+		
+		return size;
+		
+		
 	}
 }
