@@ -6,11 +6,17 @@ import java.io.IOException;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		if(args.length!=2) {
-			System.out.println("You must supply two arguments.\nOne to store data, and one to look up data.");
-		}else {
-		String readFirst = args[0];
-		String readSecond = args[1];
+		
+//		if(args.length!=2) {
+//			System.out.println("You must supply two arguments.\nOne to store data, and one to look up data.");
+//		}else {
+		//String readFirst = args[0];
+		//String readSecond = args[1];
+		
+		String readFirst = "starwars.txt";
+		String readSecond = "starwars.txt";
+		
+		
 		
 		BufferedReader input = new BufferedReader(new FileReader(readFirst)); 
 		String line;
@@ -19,9 +25,9 @@ public class Main {
 			arr1Length++;
 		}
 		input.close();
-		String[] firstArray = new String[arr1Length];
+		String[] firstArray = new String[arr1Length-1];
 		input = new BufferedReader(new FileReader(readFirst));
-		for(int i = 0; i<arr1Length; i++){
+		for(int i = 0; i<arr1Length-1; i++){
 			firstArray[i]=input.readLine();
 		}
 		input = new BufferedReader(new FileReader(readSecond));
@@ -30,16 +36,19 @@ public class Main {
 			arr2Length++;
 		}
 		input.close();
-		String[] secondArray = new String[arr2Length];
+		String[] secondArray = new String[arr2Length-1];
 		input = new BufferedReader(new FileReader(readSecond));
-		for(int i = 0; i<arr1Length; i++){
+		for(int i = 0; i<arr1Length-1; i++){
 			secondArray[i]=input.readLine();
 		}
 		
 		
+		MinHeap mh = new MinHeap();
+		mh.insert(firstArray);
+		mh.search(secondArray);
 		
 		
 	}//end if for args=2 if it fails end the program so there should be nothing between this and main.
-	}//end main method
+	//}//end main method
 
 }
