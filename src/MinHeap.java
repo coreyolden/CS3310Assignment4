@@ -90,15 +90,7 @@ public class MinHeap {
 			if(node<9999999) {
 			System.out.println("Found on Node:"+(int)node);
 			
-			int depth = 0;
-			int exponential = 0;
-			int depthtracker = 0;
-			
-			do {depth++;
-			exponential++;
-			depthtracker = (int) Math.pow(2, exponential);
-			}while(depthtracker<node);
-			System.out.println("The depth was "+depth--);
+			System.out.println("The depth was "+getDepth((int) node));
 			if(node % 1 == 0) {
 				System.out.println("The node was not a leaf");
 			}else {
@@ -120,6 +112,24 @@ public class MinHeap {
 		
 		searchTotal = searchTotal/input.length;
 		System.out.println("\n\n\nThe average time to search was "+searchTotal+" nanoseconds");
+	}
+	private int getDepth(int found) {
+		int depth = 0;
+		int depthminexpon = 1;
+		int depthmaxexpon=2;
+		if(found ==0) {
+			return depth;
+		}else {
+			int mindepth=1;
+			int maxdepth=3;
+			depth++;
+			while(found>=mindepth && found<maxdepth) {
+				depth++;
+				 mindepth = (int) Math.pow(2,depthminexpon);
+				 maxdepth = (int) Math.pow(2,depthmaxexpon);
+			}
+		}
+		return depth;
 	}
 	
 	/**traverse down the heap until you find the node you want. if the node is a leaf add .1 onto the end to show its a leaf 

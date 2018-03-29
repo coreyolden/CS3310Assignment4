@@ -65,10 +65,11 @@ public class Main {
 		//bst.search(secondArray);
 		
 	
-		System.out.println("----------------------------------------------------------\nfilling structures with n random names\n\n");
+		
 		
 		Random rand = new Random();
 		int n = 5; // input for N
+		System.out.println("----------------------------------------------------------\nfilling structures with "+n+" random names.\n\n");
 		String[] randomarr = new String[n];
 		for(int i = 0; i<n; i++) {
 			int random = rand.nextInt(firstArray.length); //generate N random names from the array
