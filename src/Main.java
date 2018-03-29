@@ -14,15 +14,16 @@ public class Main {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		
-		//verify the user provided an input to store and an input to search
-		if(args.length!=2) {
-			System.out.println("You must supply two arguments.\nOne to store data, and one to look up data.");
-		}else {
-		String readFirst = args[0];
-		String readSecond = args[1];
-		
-
+//		
+//		//verify the user provided an input to store and an input to search
+//		if(args.length!=2) {
+//			System.out.println("You must supply two arguments.\nOne to store data, and one to look up data.");
+//		}else {
+//		String readFirst = args[0];
+//		String readSecond = args[1];
+//		
+		String readFirst = "starwars_tiny.txt";
+		String readSecond = "starwars_tiny.txt";
 		
 		
 		// reads the inputs twice. once to count length and once to store in the generated arrays
@@ -86,7 +87,7 @@ public class Main {
 		rbst.insert(randomarr);
 		rbst.search(randomarr);
 		
-	}//end if for args=2 if it fails end the program so there should be nothing between this and main.
+	//}//end if for args=2 if it fails end the program so there should be nothing between this and main.
 		}//end main method
 }
 

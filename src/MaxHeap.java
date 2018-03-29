@@ -65,7 +65,7 @@ public class MaxHeap {
 			current.setRight(node);
 			node.setParent(current);
 			height=1;
-		}else if(current.getRight().getHeight()<(current.getLeft().getHeight())){
+		}else if(current.getRight().getHeight()<(current.getLeft().getHeight())-1){
 			height=1+insertNode(current.getRight(), node);
 		}else {
 			height = 1+insertNode(current.getLeft(), node);
