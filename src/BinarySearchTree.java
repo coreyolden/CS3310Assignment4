@@ -155,7 +155,8 @@ public class BinarySearchTree {
 		}
 		return size;
 	}
-	/**traverse right and left all the way and counts the steps it takes to get from one to the other 
+	/**get the largest diameter possible by adding the height of the roots left and right children +2. because the tree is height balanced this should return
+	 * the correct answer because there wont be any anomalies.
 	 * 
 	 * @return
 	 */
