@@ -121,10 +121,49 @@ public class MaxHeap {
 			System.out.println("The time for the search was "+singleSearch+" nanoseconds");
 		}
 		totalSearch = totalSearch/input.length;
-		System.out.println("\n\nThe average search time was "+totalSearch);
+		long findmax = System.nanoTime();
+		System.out.print("\n\n\nThe maximum stored in the heap is "+root.getData());
+		
+		System.out.println(" and it took "+(System.nanoTime()-findmax)+" nanoseconds to find");
+		long findmin = System.nanoTime();
+		System.out.println("\nThe minimum stored in the heap is "+findMin(root).getData()+" and it took "+(System.nanoTime()-findmin)+" nanoseconds to find");
+		
+		System.out.println("The average search time was "+totalSearch+" nanoseconds");
 		
 	}
 	
+	
+	/**recursively work down to the leaves and return values, compare them and return the lower one.
+	 * 
+	 * @param current
+	 * @return
+	 */
+	private Node findMin(Node current) {
+		
+		Node sendBack=current;
+		Node left = new Node();
+		left.setData("ZZZZZZZZ");
+		
+		Node right = new Node();
+		right.setData("ZZZZZZZZ");
+			if(current.getLeft()==null&&current.getRight()==null) {
+				return current;
+			}
+			if(current.getLeft()!= null) {
+			left = findMin(current.getLeft());}
+			if(current.getRight()!= null) {
+			right = findMin(current.getRight());}
+			
+			if(left.getData().compareTo(right.getData())<0) {
+				
+				sendBack = left;
+			}else {
+				sendBack= right;
+			}
+			
+		
+		return sendBack;
+	}
 	/**takes the current node and the search string as parameters. generate a new node with data of "notFound" and height of 9999999. If the string is found then height 
 	 * will be set to lower than that and if not it'll keep looking. If multiple copies are found it will be taken care of due to the fact that it compares
 	 * left and right child heights and only returns the lower one.

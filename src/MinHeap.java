@@ -111,7 +111,42 @@ public class MinHeap {
 		}
 		
 		searchTotal = searchTotal/input.length;
-		System.out.println("\n\n\nThe average time to search was "+searchTotal+" nanoseconds");
+		long findmin = System.nanoTime();
+		System.out.print("\n\n\nThe minimum stored in the heap is "+arr[0]);
+		System.out.println(" and it took "+(System.nanoTime()-findmin)+" nanoseconds to find");
+		long findmax = System.nanoTime();
+		System.out.println("\nThe maximum stored in the heap is "+arr[findMax(0)]+" and it took "+(System.nanoTime()-findmax)+" nanoseconds to find");
+		System.out.println("The average time to search was "+searchTotal+" nanoseconds");
+	}
+	
+	/**recursively looks for the max. Works its way down recrusively until it hits a leaf and then returns the value
+	 * Picks the higher value and returns that.
+	 * 
+	 * @param current
+	 * @return
+	 */
+	private int findMax(int current) {
+		int toreturn = 0;
+		int leftfound = 0;
+		int rightfound = 0;
+		if(((current*2)+1)>arr.length-1) {
+			return current;
+		}
+		
+	if(((current*2)+1)<=arr.length-1) {
+		 leftfound =findMax((current*2)+1);
+	}
+	
+	if(((current*2)+2)<=arr.length-1) {
+		rightfound =findMax((current*2)+2); 
+	}
+		if(arr[leftfound].compareTo(arr[rightfound])>0) {
+			toreturn = leftfound;
+		}else {
+			toreturn = rightfound;
+		}
+		System.out.print("returning "+toreturn);
+		return toreturn;
 	}
 	/**counts down parent by parent until it hits the root and returns the depth. 
 	 * 

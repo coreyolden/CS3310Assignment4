@@ -116,7 +116,37 @@ public class BinarySearchTree {
 			System.out.println("The time for the search was "+singleSearch+" nanoseconds");
 		}
 		totalSearch = totalSearch/arr.length;
+		long findmax = System.nanoTime();
+		System.out.print("\n\n\nThe maximum stored in the heap is "+findMax(root).getData());
+		
+		System.out.println(" and it took "+(System.nanoTime()-findmax)+" nanoseconds to find");
+		long findmin = System.nanoTime();
+		System.out.println("\nThe minimum stored in the heap is "+findMin(root).getData()+" and it took "+(System.nanoTime()-findmin)+" nanoseconds to find");
+		
 		System.out.println("\n\nThe average search time was "+totalSearch);
+	}
+	/**recursively move right until you hit a leaf which is the highest in the tree and return it
+	 * 
+	 * @return
+	 */
+	private Node findMax(Node current) {
+		Node sendBack=current;
+		if(current.getRight()!=null) {
+			sendBack=findMax(current.getRight());
+		}
+		return sendBack;
+	}
+	
+	/**recursively move left until you find the leaf that is the minimum in the tree and return it
+	 * 
+	 * @return
+	 */
+	private Node findMin(Node current) {
+		Node sendBack=current;
+		if(current.getLeft()!=null) {
+			sendBack=findMin(current.getLeft());
+		}
+		return sendBack;
 	}
 	/**if node is null return a node with data value "notFound" if node is found return it, if node is less than current then recurse to left child
 	 * if node is greater than current then recurse right. 
