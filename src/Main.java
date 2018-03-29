@@ -58,11 +58,11 @@ public class Main {
 		System.out.println("----------------------------------------------------------\n\n\nMax Heap\n\n");
 		MaxHeap maxH = new MaxHeap();
 		maxH.insert(firstArray);
-		//maxH.search(secondArray);
+		maxH.search(secondArray);
 		System.out.println("----------------------------------------------------------\n\n\nBST\n\n");
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.insert(firstArray);
-		//bst.search(secondArray);
+		bst.search(secondArray);
 		
 	
 		

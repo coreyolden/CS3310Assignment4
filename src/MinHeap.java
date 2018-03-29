@@ -113,20 +113,20 @@ public class MinHeap {
 		searchTotal = searchTotal/input.length;
 		System.out.println("\n\n\nThe average time to search was "+searchTotal+" nanoseconds");
 	}
+	/**counts down parent by parent until it hits the root and returns the depth. 
+	 * 
+	 * @param found
+	 * @return
+	 */
 	private int getDepth(int found) {
-		int depth = 0;
-		int depthminexpon = 1;
-		int depthmaxexpon=2;
+		int depth = 1;
 		if(found ==0) {
-			return depth;
+			depth = 0;
 		}else {
-			int mindepth=1;
-			int maxdepth=3;
-			depth++;
-			while(found>=mindepth && found<maxdepth) {
+			int parent =  (int) (Math.floor(found-1)/2);
+			while(parent>0) {
 				depth++;
-				 mindepth = (int) Math.pow(2,depthminexpon);
-				 maxdepth = (int) Math.pow(2,depthmaxexpon);
+				parent =  (int) (Math.floor(parent-1)/2);
 			}
 		}
 		return depth;
