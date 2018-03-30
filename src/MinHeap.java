@@ -192,11 +192,11 @@ public class MinHeap {
 			}
 			
 		}else {  //the string was not found so search its children
-		if(((i*2)+1)<=arr.length-1) {
+		if(((i*2)+1)<=arr.length-1 && input.compareTo(arr[i])>0 ) {
 			 depthLeft =traverse(input, ((i*2)+1));
 		}
 		
-		if(((i*2)+2)<=arr.length-1) {
+		if(((i*2)+2)<=arr.length-1 && input.compareTo(arr[i])>0) {
 			depthRight =traverse(input, ((i*2)+2)); 
 		}
 		}

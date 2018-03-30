@@ -22,8 +22,8 @@ public class Main {
 //		String readFirst = args[0];
 //		String readSecond = args[1];
 //		
-		String readFirst = "starwars_tiny.txt";
-		String readSecond = "starwars_tiny.txt";
+		String readFirst = "starwars.txt";
+		String readSecond = "starwars.txt";
 		
 		
 		// reads the inputs twice. once to count length and once to store in the generated arrays
@@ -68,7 +68,7 @@ public class Main {
 		
 		
 		Random rand = new Random();
-		int n = 5; // input for N
+		int n = 10; // input for N
 		System.out.println("----------------------------------------------------------\nfilling structures with "+n+" random names.\n\n");
 		String[] randomarr = new String[n];
 		for(int i = 0; i<n; i++) {
